@@ -20,4 +20,6 @@ Route::get('/', function () {
 });
 
 Route::resource('item', ItemController::class);
-Route::resource('login', LoginController::class);
+
+Route::get('/login', [LoginController::class, 'index']);
+Route::post('/login/admin', [LoginController::class, 'login']);

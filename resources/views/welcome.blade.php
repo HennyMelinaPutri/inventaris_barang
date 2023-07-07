@@ -1756,7 +1756,7 @@
                         <h1 class="hero-title h2-mobile mt-0 is-revealing">Selamat Datang Admin</h1>
                         <p class="hero-paragraph is-revealing"></p>
                         <p class="hero-cta is-revealing"><a class="button button-primary button-shadow"
-                                href="#">LOGIN</a></p>
+                                href="login">LOGIN</a></p>
                     </div>
                     <div class="hero-illustration is-revealing">
                         <svg width="528" height="413" viewBox="0 0 528 413" xmlns="http://www.w3.org/2000/svg">
