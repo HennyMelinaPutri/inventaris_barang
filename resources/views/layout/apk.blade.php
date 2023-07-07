@@ -11,14 +11,16 @@
 </head>
 
 <body>
-    <header class="navbar navbar-expand-lg bg-body-tertiary">
+    <header class="navbar navbar-expand-lg bg-body-tertiary bg-info-subtle">
         <div class="container-fluid p-3 ps-5">
             <h3>INVENTARIS BARANG</h3>
         </div>
     </header>
-    <div>
-        @yield('konten')
-    </div>
+    <main class="p-5">
+        <div>
+            @yield('konten')
+        </div>
+    </main>
     <footer>
 
     </footer>
