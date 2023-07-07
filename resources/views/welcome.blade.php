@@ -1754,7 +1754,7 @@
                 <div class="hero-inner">
                     <div class="hero-copy">
                         <h1 class="hero-title h2-mobile mt-0 is-revealing">Selamat Datang Admin</h1>
-                        <p class="hero-paragraph is-revealing"></p>
+                        <p class="hero-paragraph is-revealing">semangat untuk hari ini</p>
                         <p class="hero-cta is-revealing"><a class="button button-primary button-shadow"
                                 href="#">LOGIN</a></p>
                     </div>
