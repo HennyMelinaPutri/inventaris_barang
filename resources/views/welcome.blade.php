@@ -1722,7 +1722,7 @@
             <div class="site-header-inner">
                 <div class="brand header-brand" >
                     <h1 class="m-0">
-                        <a href="#">
+                        <a href="login">
                             <svg width="48" height="32" viewBox="0 0 48 32" xmlns="http://www.w3.org/2000/svg">
                                 <title>Inventaris Barang</title>
                                 <defs>
