@@ -8,7 +8,7 @@
                 <h1 class="h3 mb-3 fw-normal">Login</h1>
                 <div class="form">
                     <label for="email" class="form-label">Email</label>
-                    <input name="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                    <input name="email" type="email" value="{{Session::get('email')}}" class="form-control" id="floatingInput" placeholder="name@example.com">
                 </div>
                 <div class="form">
                     <label for="password" class="form-label">Password</label>

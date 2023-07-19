@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -14,6 +15,7 @@ class LoginController extends Controller
 
     function login(Request $request)
     {
+        Session::flash('email', $request->email);
         $request->validate([
             'email' => 'required',
             'password' => 'required'
@@ -28,7 +30,7 @@ class LoginController extends Controller
         ];
 
         if (Auth::attempt($infologin)) {
-            return 'Selamat Menikmati Kerjamu Hari Ini Admin, Semoga Berkah';
+            return redirect('item')->with('sukses', 'berhasil login');
         } else {
             return redirect('login')->withErrors('Email dan Pssword yang Dimaksukkan Tidak Valid');
         }
