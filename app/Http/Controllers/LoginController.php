@@ -35,4 +35,10 @@ class LoginController extends Controller
             return redirect('login')->withErrors('Email dan Pssword yang Dimaksukkan Tidak Valid');
         }
     }
+
+    function logout()
+    {
+        Auth::logout();
+        return redirect('login')->with('sukses', 'Berhasil logout');
+    }
 }
