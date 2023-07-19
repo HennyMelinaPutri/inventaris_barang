@@ -22,4 +22,5 @@ Route::get('/', function () {
 Route::resource('item', ItemController::class);
 
 Route::get('/login', [LoginController::class, 'index']);
+Route::get('/login/out', [LoginController::class, 'logout']);
 Route::post('/login/admin', [LoginController::class, 'login']);
