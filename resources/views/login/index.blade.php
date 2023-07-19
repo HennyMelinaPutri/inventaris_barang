@@ -1,4 +1,4 @@
-@extends('layout/apk')
+ @extends('layout/apk')
 
 @section('konten')
     <div class="d-flex align-items-center py-4 bg-body-tertiary">
