@@ -30,7 +30,7 @@ class LoginController extends Controller
         if (Auth::attempt($infologin)) {
             return 'Selamat Menikmati Kerjamu Hari Ini Admin, Semoga Berkah';
         } else {
-            return 'Gagal Login, Periksa Kembali Info Login Anda';
+            return redirect('login')->withErrors('Email dan Pssword yang Dimaksukkan Tidak Valid');
         }
     }
 }
