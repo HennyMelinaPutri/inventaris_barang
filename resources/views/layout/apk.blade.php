@@ -21,6 +21,7 @@
     </header>
     <main class="p-5">
         <div>
+            @include('komponen/error')
             @yield('konten')
         </div>
     </main>

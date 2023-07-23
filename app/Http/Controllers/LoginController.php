@@ -32,7 +32,7 @@ class LoginController extends Controller
         if (Auth::attempt($infologin)) {
             return redirect('item')->with('sukses', 'berhasil login');
         } else {
-            return redirect('login')->withErrors('Email dan Pssword yang Dimaksukkan Tidak Valid');
+            return redirect('login')->withErrors('Email dan Password yang Dimaksukkan Tidak Valid');
         }
     }
 
