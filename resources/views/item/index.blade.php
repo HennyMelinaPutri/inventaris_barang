@@ -2,10 +2,14 @@
 
 @section('konten')
     <div class="my-3 p-3 bg-body rounded shadow-sm">
-        <div class="pb-3">
-            <a href='' class="btn btn-primary">+ Tambah Data</a>
+        <div class="d-flex justify-content-between">
+            <div class="pb-4">
+                <h4><u>Data Barang</u></h4>
+            </div>
+            <div class="pb-3">
+                <a href='' class="btn btn-primary">+ Tambah Data</a>
+            </div>
         </div>
-
         <table class="table table-striped">
             <thead>
                 <tr>
