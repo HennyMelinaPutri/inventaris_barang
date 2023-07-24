@@ -15,19 +15,21 @@
         <div class="container-fluid p-3 ps-5">
             <h3>INVENTARIS BARANG</h3>
             @if (Auth::check())
-                 @include('komponen/menu')
+                @include('komponen/menu')
             @endif
         </div>
     </header>
-    <main class="p-5">
-        <div>
-            @include('komponen/error')
-            @yield('konten')
+    <main>
+        <div class="d-flex ">
+            @if (Auth::check())
+                @include('komponen/sidebar')
+            @endif
+            <div class="w-100">
+                @include('komponen/error')
+                @yield('konten')
+            </div>
         </div>
     </main>
-    <footer>
-
-    </footer>
 </body>
 
 </html>
