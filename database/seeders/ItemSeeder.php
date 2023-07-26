@@ -13,7 +13,7 @@ class ItemSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('item')->insert([
+        DB::table('items')->insert([
             'id_barang'=>'01',
             'nama_barang'=>'Kursi',
             'bahan'=>'Kayu',
