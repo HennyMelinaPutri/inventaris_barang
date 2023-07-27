@@ -13,7 +13,8 @@ class SupplierController extends Controller
      */
     public function index()
     {
-        return view('supplier.index');
+        $data = supplier::orderBy('nama_supplier', 'desc');
+        return view('supplier.index')->with('data', $data);
     }
 
     /**
