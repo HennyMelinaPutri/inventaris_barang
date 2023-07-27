@@ -21,16 +21,19 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>001</td>
-                    <td>PT. Wood</td>
-                    <td>Jakarta</td>
-                    <td>0812345678</td>
-                    <td>
-                        <a href='' class="btn btn-warning btn-sm">Edit</a>
-                        <a href='' class="btn btn-danger btn-sm">Del</a>
-                    </td>
-                </tr>
+                @foreach ($data as $item)
+                    <tr>
+                        <td>{{ $item->id_supplier }}</td>
+                        <td>{{ $item->nama_supplier }}</td>
+                        <td>{{ $item->alamat }}</td>
+                        <td>{{ $item->telepon }}</td>
+                        <td>
+                            <a href='' class="btn btn-warning btn-sm">Edit</a>
+                            <a href='' class="btn btn-danger btn-sm">Del</a>
+                        </td>
+                    </tr>
+                @endforeach
+
             </tbody>
         </table>
     </div>
