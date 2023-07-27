@@ -13,7 +13,9 @@ class SupplierController extends Controller
      */
     public function index()
     {
-        $data = supplier::orderBy('id_supplier', 'asc')->get();
+        $jumlahhalaman = 4;
+
+        $data = supplier::orderBy('id_supplier', 'asc')->paginate($jumlahhalaman);
         return view('supplier.index')->with('data', $data);
     }
 
