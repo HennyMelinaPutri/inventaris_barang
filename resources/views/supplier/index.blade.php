@@ -7,7 +7,7 @@
                 <h4><u>Data Supplier</u></h4>
             </div>
             <div class="pb-3">
-                <a href='' class="btn btn-primary">+ Tambah Supplier</a>
+                <a href='{{ url('supplier/create') }}' class="btn btn-primary">+ Tambah Supplier</a>
             </div>
         </div>
         <table class="table table-striped">
