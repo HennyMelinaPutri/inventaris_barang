@@ -14,16 +14,12 @@
     <header class="navbar navbar-expand-lg bg-body-tertiary bg-info-subtle">
         <div class="container-fluid p-3 ps-5">
             <h3>INVENTARIS BARANG</h3>
-            @if (Auth::check())
                 @include('komponen/menu')
-            @endif
         </div>
     </header>
     <main>
         <div class="d-flex ">
-            @if (Auth::check())
                 @include('komponen/sidebar')
-            @endif
             <div class="w-100">
                 @include('komponen/error')
                 @yield('konten')
