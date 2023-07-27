@@ -21,7 +21,7 @@
         <div class="d-flex ">
                 @include('komponen/sidebar')
             <div class="w-100">
-                @include('komponen/error')
+                @include('komponen/pesan')
                 @yield('konten')
             </div>
         </div>
