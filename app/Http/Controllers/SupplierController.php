@@ -36,9 +36,9 @@ class SupplierController extends Controller
         $request->validate([
             'nama_supplier' => 'required|unique:supplier,nama_supplier',
             'alamat' => 'required',
-            'telepon' => 'required|numeric'
+            'telepon' => 'required|numeric|min:10'
         ], [
-            'nama_suplier.required' => 'Nama supplier wajib diisi',
+            'nama_supplier.required' => 'Nama supplier wajib diisi',
             'nama_supplier.unique' => 'Supplier sudah terdaftar dalam sistem',
             'alamat.required' => 'Alamat supplier wajib diisi',
             'telepon.required' => 'Telepon supplier wajib diisi',
