@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\supplier;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class SupplierController extends Controller
 {
@@ -19,7 +21,7 @@ class SupplierController extends Controller
      */
     public function create()
     {
-        //
+        return view('supplier.create');
     }
 
     /**
@@ -27,7 +29,29 @@ class SupplierController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Session::flash('nama_supplier', $request->nama_supplier);
+        Session::flash('alamat', $request->alamat);
+        Session::flash('telepon', $request->telepon);
+
+        $request->validate([
+            'nama_supplier' => 'required|unique:supplier,nama_supplier',
+            'alamat' => 'required',
+            'telepon' => 'required|numeric'
+        ], [
+            'nama_suplier.required' => 'Nama supplier wajib diisi',
+            'nama_supplier.unique' => 'Supplier sudah terdaftar dalam sistem',
+            'alamat.required' => 'Alamat supplier wajib diisi',
+            'telepon.required' => 'Telepon supplier wajib diisi',
+            'telepon.numeric' => 'Masukkan nomor telepon dengan angka yang benar',
+        ]);
+
+        $data = [
+            'nama_supplier' => $request->nama_supplier,
+            'alamat' => $request->alamat,
+            'telepon' => $request->telepon,
+        ];
+        supplier::create($data);
+        return redirect()->to('supplier')->with('sukses', 'Berhasil menambahkan data supplier');
     }
 
     /**
