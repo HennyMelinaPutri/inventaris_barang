@@ -2,10 +2,10 @@
     <hr>
     <ul class="nav nav-pills flex-column">
         <li class="nav-item">
-            <a href="#" class="nav-link active" aria-current="page">Data Barang</a>
+            <a href="{{ url('item') }}" class="nav-link link-body-emphasis">Data Barang</a>
         </li>
         <li>
-            <a href="#" class="nav-link link-body-emphasis">Data Supplier</a>
+            <a href="{{ url('supplier') }}" class="nav-link link-body-emphasis">Data Supplier</a>
         </li>
         <li>
             <a href="#" class="nav-link link-body-emphasis">Data Barang Masuk</a>
