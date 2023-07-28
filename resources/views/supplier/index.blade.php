@@ -28,8 +28,13 @@
                         <td>{{ $item->alamat }}</td>
                         <td>{{ $item->telepon }}</td>
                         <td>
-                            <a href='' class="btn btn-warning btn-sm">Edit</a>
-                            <a href='' class="btn btn-danger btn-sm">Hapus</a>
+                            <a href='{{ url('supplier/' . $item->id_supplier . '/edit') }}'
+                                class="btn btn-warning btn-sm">Edit</a>
+                            <form onsubmit="return confirm('Hapus data supplier ini?')" action="{{ url('supplier/' . $item->id_supplier) }}" class='d-inline' method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" name="submit" class="btn btn-danger btn-sm">Hapus</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach

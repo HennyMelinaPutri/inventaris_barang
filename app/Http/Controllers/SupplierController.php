@@ -13,7 +13,7 @@ class SupplierController extends Controller
      */
     public function index()
     {
-        $jumlahhalaman = 4;
+        $jumlahhalaman = 10;
 
         $data = supplier::orderBy('id_supplier', 'asc')->paginate($jumlahhalaman);
         return view('supplier.index')->with('data', $data);
@@ -68,24 +68,43 @@ class SupplierController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $data = supplier::where('id_supplier', $id)->first();
+        return view('supplier.edit')->with('data', $data);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'nama_supplier' => 'required',
+            'alamat' => 'required',
+            'telepon' => 'required|numeric|min:10'
+        ], [
+            'nama_supplier.required' => 'Nama supplier wajib diisi',
+            'alamat.required' => 'Alamat supplier wajib diisi',
+            'telepon.required' => 'Telepon supplier wajib diisi',
+            'telepon.numeric' => 'Masukkan nomor telepon dengan angka yang benar',
+        ]);
+
+        $data = [
+            'nama_supplier' => $request->nama_supplier,
+            'alamat' => $request->alamat,
+            'telepon' => $request->telepon,
+        ];
+        supplier::where('id_supplier', $id)->update($data);
+        return redirect()->to('supplier')->with('sukses', 'Berhasil mengedit data supplier');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        supplier::where('id_supplier', $id)->delete();
+        return redirect()->to('supplier')->with('sukses', 'Berhasil menghapus data supplier');
     }
 }
