@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\item;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class ItemController extends Controller
 {
@@ -11,7 +13,10 @@ class ItemController extends Controller
      */
     public function index()
     {
-        return view('item.index');
+        $jumlahhalaman = 5;
+
+        $dataitem = item::orderBy('id_barang', 'asc')->paginate($jumlahhalaman);
+        return view('item.index')->with('dataitem', $dataitem);
     }
 
     /**
@@ -19,7 +24,7 @@ class ItemController extends Controller
      */
     public function create()
     {
-        //
+        return view('item.create');
     }
 
     /**
@@ -27,7 +32,37 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Session::flash('nama_barang', $request->nama_barang);
+        Session::flash('bahan', $request->bahan);
+        Session::flash('kondisi', $request->kondisi);
+        Session::flash('jumlah', $request->jumlah);
+        Session::flash('supplier', $request->supplier);
+
+        $request->validate([
+            'nama_barang' => 'required|unique:item,nama_barang',
+            'bahan' => 'required',
+            'kondisi' => 'required',
+            'jumlah' => 'required|numeric',
+            'supplier' => 'required'
+        ], [
+            'nama_barang.required' => 'Nama barang wajib diisi',
+            'nama_barang.unique' => 'Barang sudah terdaftar dalam sistem',
+            'bahan.required' => 'Bahan wajib diisi',
+            'kondisi.required' => 'Kondisi barang wajib diisi',
+            'jumlah.required' => 'Jumlah barang wajib diisi',
+            'jumlah.numeric' => 'Masukkan jumlah barang dengan angka',
+            'supplier.required' => 'Supplier barang wajib diisi',
+        ]);
+
+        $dataitem = [
+            'nama_barang' => $request->nama_barang,
+            'bahan' => $request->bahan,
+            'kondisi' => $request->kondisi,
+            'jumlah' => $request->jumlah,
+            'supplier' => $request->supplier,
+        ];
+        item::create($dataitem);
+        return redirect()->to('item')->with('sukses', 'Berhasil menambahkan data barang');
     }
 
     /**
@@ -43,7 +78,8 @@ class ItemController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $dataitem = item::where('id_barang', $id)->first();
+        return view('item.edit')->with('data', $dataitem);
     }
 
     /**
@@ -51,7 +87,30 @@ class ItemController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'nama_barang' => 'required',
+            'bahan' => 'required',
+            'kondisi' => 'required',
+            'jumlah' => 'required|numeric',
+            'supplier' => 'required'
+        ], [
+            'nama_barang.required' => 'Nama barang wajib diisi',
+            'bahan.required' => 'Bahan wajib diisi',
+            'kondisi.required' => 'Kondisi barang wajib diisi',
+            'jumlah.required' => 'Jumlah barang wajib diisi',
+            'jumlah.numeric' => 'Masukkan jumlah barang dengan angka',
+            'supplier.required' => 'Supplier barang wajib diisi',
+        ]);
+
+        $dataitem = [
+            'nama_barang' => $request->nama_barang,
+            'bahan' => $request->bahan,
+            'kondisi' => $request->kondisi,
+            'jumlah' => $request->jumlah,
+            'supplier' => $request->supplier,
+        ];
+        item::where('id_barang', $id)->update($dataitem);
+        return redirect()->to('item')->with('sukses', 'Berhasil edit data barang');
     }
 
     /**
@@ -59,6 +118,7 @@ class ItemController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        item::where('id_barang', $id)->delete();
+        return redirect()->to('item')->with('sukses', 'Berhasil menghapus data barang');
     }
 }
