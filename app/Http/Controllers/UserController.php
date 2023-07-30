@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
@@ -50,7 +51,7 @@ class UserController extends Controller
         $datauser = [
             'name' => $request->name,
             'email' => $request->email,
-            'password' => password_hash($request->email, PASSWORD_DEFAULT),
+            'password' => Hash::make($request->password),
         ];
         User::create($datauser);
         return redirect()->to('user')->with('sukses', 'Berhasil menambahkan Admin');

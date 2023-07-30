@@ -35,6 +35,7 @@
 
 <body>
     <main>
+        @include('komponen/pesan')
         <div class="form-signin w-100 m-auto">
             <form action="/login/admin" method="POST">
                 @csrf
