@@ -1,7 +1,7 @@
-@if (Session::has('success'))
-    <div class="pt-3">
+@if (Session::has('sukses'))
+    <div class="pt-3 px-3">
         <div class="alert alert-success">
-            {{ Session::get('success') }}
+            {{ Session::get('sukses') }}
         </div>
     </div>
 @endif
