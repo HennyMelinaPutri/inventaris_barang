@@ -16,7 +16,6 @@ return new class extends Migration
             $table->timestamps();
             $table->string('nama_barang_in');
             $table->string('supplier');
-            $table->dateTime('tanggal_masuk');
         });
     }
 

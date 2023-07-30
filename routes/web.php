@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\ItemInController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\UserController;
@@ -22,6 +23,7 @@ Route::get('/', function () {
 });
 
 Route::resource('item', ItemController::class);
+Route::resource('itemin', ItemInController::class);
 Route::resource('user', UserController::class);
 Route::resource('supplier', SupplierController::class);
 

@@ -8,7 +8,7 @@
             <a href="{{ url('supplier') }}" class="nav-link link-body-emphasis">Data Supplier</a>
         </li>
         <li>
-            <a href="#" class="nav-link link-body-emphasis">Data Barang Masuk</a>
+            <a href="{{ url('itemin') }}" class="nav-link link-body-emphasis">Data Barang Masuk</a>
         </li>
         <li>
             <a href="#" class="nav-link link-body-emphasis">Data Barang Keluar</a>
