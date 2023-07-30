@@ -14,7 +14,7 @@
             <a href="#" class="nav-link link-body-emphasis">Data Barang Keluar</a>
         </li>
         <li>
-            <a href="#" class="nav-link link-body-emphasis">Akun Admin</a>
+            <a href="{{ url('user') }}" class="nav-link link-body-emphasis">Akun Admin</a>
         </li>
     </ul>
 </div>

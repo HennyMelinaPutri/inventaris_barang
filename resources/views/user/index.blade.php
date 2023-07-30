@@ -13,11 +13,11 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th class="col-md-3">ID Admin</th>
-                    <th class="col-md-3">Nama Admin</th>
-                    <th class="col-md-4">Email</th>
-                    <th class="col-md-2">Password</th>
-                    <th class="col-md-2">Aksi</th>
+                    <th class="col">ID Admin</th>
+                    <th class="col">Nama Admin</th>
+                    <th class="col">Email</th>
+                    <th class="col">Password</th>
+                    <th class="col">Aksi</th>
                 </tr>
             </thead>
             <tbody>
