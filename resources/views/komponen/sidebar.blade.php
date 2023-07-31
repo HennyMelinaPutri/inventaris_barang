@@ -11,7 +11,7 @@
             <a href="{{ url('itemin') }}" class="nav-link link-body-emphasis">Data Barang Masuk</a>
         </li>
         <li>
-            <a href="#" class="nav-link link-body-emphasis">Data Barang Keluar</a>
+            <a href="{{ url('itemout') }}" class="nav-link link-body-emphasis">Data Barang Keluar</a>
         </li>
         <li>
             <a href="{{ url('user') }}" class="nav-link link-body-emphasis">Akun Admin</a>
