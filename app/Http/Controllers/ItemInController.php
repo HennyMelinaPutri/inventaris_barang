@@ -32,15 +32,15 @@ class ItemInController extends Controller
      */
     public function store(Request $request)
     {
-        Session::flash('nama_barang_in', $request->nama_barang);
+        Session::flash('nama_barang_in', $request->nama_barang_in);
         Session::flash('supplier', $request->supplier);
 
         $request->validate([
             'nama_barang_in' => 'required|unique:item_in,nama_barang_in',
             'supplier' => 'required'
         ], [
-            'nama_barang.required' => 'Nama barang wajib diisi',
-            'nama_barang.unique' => 'Barang sudah terdaftar dalam sistem',
+            'nama_barang_in.required' => 'Nama barang wajib diisi',
+            'nama_barang_in.unique' => 'Barang sudah terdaftar dalam sistem',
             'supplier.required' => 'Supplier barang wajib diisi',
         ]);
 
