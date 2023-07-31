@@ -93,7 +93,7 @@ class UserController extends Controller
         $datauser = [
             'name' => $request->name,
             'email' => $request->email,
-            'password' => password_hash($request->email, PASSWORD_DEFAULT),
+            'password' => Hash::make($request->password),
         ];
         User::where('id_user', $id)->update($datauser);
         return redirect()->to('user')->with('sukses', 'Berhasil edit Admin');
